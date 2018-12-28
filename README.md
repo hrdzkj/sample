@@ -14,5 +14,6 @@ Json
 Application  
 implementation中导入的第三方库  
 
+todo: ViewModel+json的封装
 Rxjava的一些高级用法请看https://github.com/hrdzkj/RxJavaSamples的develop分支   
 
