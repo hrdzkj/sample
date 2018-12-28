@@ -1,0 +1,27 @@
+ext {
+
+    android = [
+            compileSdkVersion : 28,
+            buildToolsVersion : '28.0.3',
+            minSdkVersion     : 20,
+            targetSdkVersion  : 22
+    ]
+
+    def dependVersion = [
+            support      : "28.0.0",
+            lifecycle    : "1.1.1",
+            smartRefresh : "1.0.5.1"
+    ]
+
+    dependencies = [
+            "appcompat-v7"        : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "support-design"      : "com.android.support:design:${dependVersion.support}",
+            "support-v4"          : "com.android.support:support-v4:${dependVersion.support}",
+            "support-v13"         : "com.android.support:support-v13:${dependVersion.support}",
+            "lifecycle.runtime"   : "android.arch.lifecycle:runtime:${dependVersion.lifecycle}",
+            "lifecycle:extensions": "android.arch.lifecycle:extensions:${dependVersion.lifecycle}",
+            "lifecycle:compiler"  : "android.arch.lifecycle:compiler:${dependVersion.lifecycle}",
+            "smartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefresh}",
+            "smartRefreshHeader"  : "com.scwang.smartrefresh:SmartRefreshHeader:${dependVersion.smartRefresh}",
+    ]
+}

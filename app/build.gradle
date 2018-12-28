@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    defaultConfig {
+        applicationId  "com.gxjfict.sample"
+        minSdkVersion  rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    /*
+    signingConfigs {
+        debug {
+            keyAlias 'jfict'
+            keyPassword 'jf1234'
+            storeFile file('../jk.keystore')
+            storePassword 'jf1234'
+        }
+        release {
+            keyAlias 'jfict'
+            keyPassword 'jf1234'
+            storeFile file('../jk.keystore')
+            storePassword 'jf1234'
+        }
+    }
+    */
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    /*
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+   */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+     //support
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["support-design"]
+    //lifecycle
+    implementation rootProject.ext.dependencies["lifecycle.runtime"]
+    implementation rootProject.ext.dependencies["lifecycle:extensions"]
+    //smartRefresh
+    implementation rootProject.ext.dependencies["smartRefreshLayout"]
+    implementation rootProject.ext.dependencies["smartRefreshHeader"]
+    //rxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    // other
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
+    implementation 'com.hrdzkj:optional:0.1'
+    // implementation 'com.hrdzkj:startForResult:1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
