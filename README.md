@@ -10,7 +10,7 @@ RecyclerViewHolder，InterfaceItemClick
 Activity生命周期回调实现  
 Drawable工具  
 Fragment切换工具  
-Json
-Application
+Json  
+Application  
 implementation中导入的第三方库
 
