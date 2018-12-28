@@ -12,5 +12,7 @@ Drawable工具
 Fragment切换工具  
 Json  
 Application  
-implementation中导入的第三方库
+implementation中导入的第三方库  
+
+Rxjava的一些高级用法请看https://github.com/hrdzkj/RxJavaSamples的develop分支   
 
