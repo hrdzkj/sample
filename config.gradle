@@ -8,20 +8,26 @@ ext {
     ]
 
     def dependVersion = [
-            support      : "28.0.0",
-            lifecycle    : "1.1.1",
-            smartRefresh : "1.0.5.1"
+            support       : "28.0.0",
+            lifecycle     : "1.1.1",
+            smartRefresh  : "1.0.5.1",
+            daggerVersion : "2.15",
     ]
 
     dependencies = [
-            "appcompat-v7"        : "com.android.support:appcompat-v7:${dependVersion.support}",
-            "support-design"      : "com.android.support:design:${dependVersion.support}",
-            "support-v4"          : "com.android.support:support-v4:${dependVersion.support}",
-            "support-v13"         : "com.android.support:support-v13:${dependVersion.support}",
-            "lifecycle.runtime"   : "android.arch.lifecycle:runtime:${dependVersion.lifecycle}",
-            "lifecycle:extensions": "android.arch.lifecycle:extensions:${dependVersion.lifecycle}",
-            "lifecycle:compiler"  : "android.arch.lifecycle:compiler:${dependVersion.lifecycle}",
-            "smartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefresh}",
-            "smartRefreshHeader"  : "com.scwang.smartrefresh:SmartRefreshHeader:${dependVersion.smartRefresh}",
+            "appcompat-v7"              : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "support-design"            : "com.android.support:design:${dependVersion.support}",
+            "support-v4"                : "com.android.support:support-v4:${dependVersion.support}",
+            "support-v13"               : "com.android.support:support-v13:${dependVersion.support}",
+            "lifecycle.runtime"         : "android.arch.lifecycle:runtime:${dependVersion.lifecycle}",
+            "lifecycle:extensions"      : "android.arch.lifecycle:extensions:${dependVersion.lifecycle}",
+            "lifecycle:compiler"        : "android.arch.lifecycle:compiler:${dependVersion.lifecycle}",
+            "smartRefreshLayout"        : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefresh}",
+            "smartRefreshHeader"        : "com.scwang.smartrefresh:SmartRefreshHeader:${dependVersion.smartRefresh}",
+            "dagger"                    : "com.google.dagger:dagger:${dependVersion.daggerVersion}",
+            "dagger-android"            : "com.google.dagger:dagger-android:${dependVersion.daggerVersion}",
+            "dagger-android-support"    : "com.google.dagger:dagger-android-support:${dependVersion.daggerVersion}",
+            "dagger-android-processor"  : "com.google.dagger:dagger-android-processor:${dependVersion.daggerVersion}",
+            "dagger-compiler"           : "com.google.dagger:dagger-compiler:${dependVersion.daggerVersion}",
     ]
 }

@@ -50,7 +50,6 @@ public class MyApplication extends Application {
         instance =this;
 
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacksImp());
-
     }
 
     @Override
@@ -59,5 +58,7 @@ public class MyApplication extends Application {
         MultiDex.install(this);
     }
 
-
+    public static Application getInstance() {
+        return instance;
+    }
 }
