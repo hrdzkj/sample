@@ -5,6 +5,9 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -37,9 +40,10 @@ public class MainActivity extends BaseActivity {
         });
 
         findViewById(R.id.sample_text).setOnClickListener(view -> {
-            mBaseViewModel.getBaidu();
+            //mBaseViewModel.getBaidu();
         });
     }
+
 
 
 }
