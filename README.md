@@ -40,7 +40,7 @@ viewFlipper.showNext();
 viewFlipper.bringChildToFront();
 
 
-如何保留标题---viewFlipper写在各个的布局文件里面,baseActivity封装切换方法，这样和李叶文写的也差不多
+如何保留标题---viewFlipper写在各个的布局文件里面,baseActivity封装切换方法，这样和LYW写的emptyview也差不多
               参考上拉刷新下拉加载组件（另外对外提供接口）
 --------------
 2）注解的方式进行权限验证，会改变流程吗，可行吗？
