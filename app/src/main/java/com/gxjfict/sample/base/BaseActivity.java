@@ -7,6 +7,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.gxjfict.sample.R;
+import com.gxjfict.sample.dialog.LoadingDialog;
 
 import io.reactivex.disposables.Disposable;
 
@@ -19,6 +20,16 @@ public class BaseActivity extends AppCompatActivity {
 
     private Toast mToast = null;
     protected Disposable mDisposable;
+    protected LoadingDialog mLoadingDialog;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.right_in,R.anim.right_out);
+        super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        mLoadingDialog = new LoadingDialog(this);
+    }
+
 
     /**
      * 显示吐司
@@ -42,12 +53,6 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.right_in,R.anim.right_out);
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-    }
 
     @Override
     public void finish() {

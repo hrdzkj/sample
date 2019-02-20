@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e9e9e9"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:id="@+id/layoutModifyPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_50"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/size_14"
+        android:background="@drawable/me_fragment_selector">
+        <ImageView
+            android:id="@+id/imageModifyPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/vector_drawable_password"
+            android:layout_marginLeft="@dimen/size_10"/>
+        <TextView
+            android:text="修改密码"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/size_16"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_toRightOf="@id/imageModifyPassword"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size_10"
+            android:src="@drawable/arrows_right"/>
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_size"
+        android:background="@color/line_color"/>
+
+
+    <RelativeLayout
+        android:id="@+id/layoutAbout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_50"
+        android:orientation="horizontal"
+        android:background="@drawable/me_fragment_selector">
+
+        <ImageView
+            android:id="@+id/imageAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/vector_drawable_about"
+            android:layout_marginLeft="@dimen/size_10"/>
+
+        <TextView
+            android:id="@+id/textVersion"
+            android:text="版本V1.0"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/size_16"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_toRightOf="@id/imageAbout"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_size"
+        android:background="@color/line_color"/>
+
+
+    <RelativeLayout
+        android:id="@+id/layoutTE"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_50"
+        android:orientation="horizontal"
+        android:background="@drawable/me_fragment_selector">
+
+        <ImageView
+            android:id="@+id/imageTE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/vector_login_out"
+            android:layout_marginLeft="@dimen/size_10"/>
+
+        <TextView
+            android:text="退出登录"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/size_16"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_toRightOf="@id/imageTE"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

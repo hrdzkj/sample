@@ -1,16 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_FFFFFF">
+    android:background="@color/app_white"
+    android:orientation="vertical">
+    <include layout="@layout/include_title" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/sample_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_60"
-        android:layout_marginLeft="@dimen/size_60"
-        android:text="Hello World!"
-        android:textColor="@color/color_333333"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_size"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:id="@+id/activity_main_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_bottonheight"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/app_white">
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="@dimen/size_5"
+            android:src="@drawable/home_hover" />
+
+        <View
+            android:layout_width="@dimen/split_size"
+            android:layout_height="match_parent"
+            android:background="@color/line_color"/>
+        <ImageView
+            android:id="@+id/imageViewMine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="@dimen/size_5"
+            android:src="@drawable/tab_mine" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

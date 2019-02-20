@@ -1,5 +1,7 @@
 package com.gxjfict.sample.utils.network;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -11,13 +13,12 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 public class NetWork {
     private static NetWork mInstance=null;
-
     private IHttpService mHttpService;
     private NetWork()
     {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient())
-                .baseUrl("http://www.baidu.com/")
+                .baseUrl(HttpConst.BASEURL)
                 //设置内容格式,这种对应的数据返回值是String类型
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -33,8 +34,8 @@ public class NetWork {
       return mInstance;
     }
 
-    public Observable<String> get(String url) {
-        return mHttpService.get(url);
+    public Observable<String> post(String path,Map<String,String>para) {
+        return mHttpService.postMap(path,para);
     }
 
 }

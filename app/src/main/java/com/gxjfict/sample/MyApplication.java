@@ -5,8 +5,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
-import com.gxjfict.sample.R;
 import com.gxjfict.sample.utils.ActivityLifecycleCallbacksImp;
+import com.orhanobut.hawk.Hawk;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -48,7 +48,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance =this;
-
+        Hawk.init(this).build();
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacksImp());
     }
 
