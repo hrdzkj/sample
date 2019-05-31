@@ -2,8 +2,19 @@ package com.gxjfict.sample.utils.network;
 
 import java.util.Map;
 
+
+import com.orhanobut.hawk.Hawk;
+import java.nio.charset.Charset;
+import java.nio.charset.UnsupportedCharsetException;
+import java.util.Map;
 import io.reactivex.Observable;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -25,7 +36,7 @@ public class NetWork {
             Response response;
             if (Hawk.contains(Hawk_keys.KEY_TOKEN)) {
                 // add something
-               // Request request = original.newBuilder().header("Authorization", Hawk.get(Hawk_keys.KEY_TOKEN)).build();
+                Request request = original.newBuilder().header("Authorization", Hawk.get(Hawk_keys.KEY_TOKEN)).build();
                 response= chain.proceed(request);
             } else {
                 response=chain.proceed(original);
@@ -80,3 +91,4 @@ public class NetWork {
     }
 
 }
+
