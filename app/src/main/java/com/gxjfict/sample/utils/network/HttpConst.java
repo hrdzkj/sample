@@ -5,9 +5,10 @@ package com.gxjfict.sample.utils.network;
  */
 public class HttpConst {
     public static String REQUEST_SUCCESS ="0";
-    public static String BASEURL="http://10.203.7.59:8080/gxqfyExam/";
+    public static String BASEURL="http://124.226.213.3:9090/";
 
 
-    public static String APP_LOGIN="common/studentLogin";
+    public static String APP_LOGIN="Account/StudentLogin";
+    public static String  GetCurrentLoginInformations="api/services/app/session/GetCurrentLoginInformations";
 
 }

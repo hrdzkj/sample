@@ -32,10 +32,17 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'retrofit2.pro'
+        }
+
+        debug {
+            minifyEnabled true
+            println "liuyi ${getDefaultProguardFile('proguard-android.txt')}"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro','retrofit2.pro'
         }
     }
+
     /*
     externalNativeBuild {
         cmake {
@@ -77,14 +84,14 @@ dependencies {
     // other
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
-    implementation 'com.contrarywind:Android-PickerView:4.1.6'
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
     implementation 'com.hrdzkj:optional:0.1'
     implementation 'com.hrdzkj:startforresult:0.1'
     implementation "com.orhanobut:hawk:2.0.1"
     testImplementation 'junit:junit:4.12'
 
     //
-    implementation 'com.blankj:utilcode:1.23.4'
+    implementation 'com.blankj:utilcode:1.24.2'
     
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

@@ -1,6 +1,7 @@
 package com.gxjfict.sample.business.main;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,9 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.gxjfict.sample.R;
+import com.gxjfict.sample.utils.ToastUtil;
+import com.gxjfict.sample.utils.network.HttpConst;
+import com.gxjfict.sample.utils.network.NetWork;
 import com.gxjfict.sample.widget.LooperTextView;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -65,7 +73,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.include_ivs: //智能视频监控
-
+                getCurrentLoginInformations();
                 break;
 
             case R.id.include_old_vs: //原有视频监控"
@@ -92,5 +100,23 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
         }
+    }
+
+
+    @SuppressLint("CheckResult")
+    private void getCurrentLoginInformations() {
+
+        NetWork.getInstance()
+                .post(HttpConst.GetCurrentLoginInformations, new HashMap<>())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> {
+                    ToastUtil.showShort(s);
+
+                }, throwable -> {
+
+                    ToastUtil.showLong("网络异常");
+                    throwable.printStackTrace();
+                });
     }
 }

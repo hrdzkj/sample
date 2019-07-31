@@ -40,7 +40,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView mTextViewTopTitle;
     private ImageView mImageViewGoBack;
 
-
+    public static boolean IS_LOGIN=false;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,15 +68,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnLogin:
-                if (TextUtils.isEmpty(mTextUserName.getText().toString())) {
-                    ToastUtil.showShort("请输入用户名");
-                    return;
-                }
-
-                if (TextUtils.isEmpty(mTextPassword.getText().toString())) {
-                    ToastUtil.showShort("请输入密码");
-                    return;
-                }
 
                 doLogin();
                 break;
@@ -88,18 +79,21 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @SuppressLint("CheckResult")
     private void doLogin() {
-        Map<String, String> para = new HashMap<>();
-        para.put("studentAccount", mTextUserName.getText().toString());
-        para.put("studentPwd", mTextPassword.getText().toString());
         unsubscribe();
-        mDisposable = NetWork.getInstance().post(HttpConst.APP_LOGIN, para).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(s -> {
-            JsonData result = JsonData.create(s);
-            if (REQUEST_SUCCESS.equals(result.optString("code"))) {
-                Hawk.put(Hawk_keys.KEY_TOKEN,result.optString("data"));
+
+        Map<String,String> para = new HashMap<>();
+        para.put("txtAccount","011080606");
+        para.put("txtPass","MTIzNDU2");
+        para.put("txtVCode","147258369");
+        mDisposable = NetWork.getInstance()
+                .clearCookie()
+                .post(HttpConst.APP_LOGIN, para)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> {
+                ToastUtil.showShort(s);
                 toMainActivity();
-            } else {
-                ToastUtil.showShort(result.optString("msg"));
-            }
+
         }, throwable -> {
             mLoadingDialog.dismiss();
             ToastUtil.showLong("网络异常");

@@ -55,7 +55,7 @@
                 android:background="@null"
                 android:hint="请输入用户名"
                 android:paddingLeft="@dimen/size_20"
-                android:text="xiepengfei"
+                android:text="011080606"
                 android:textColor="@color/color_333333"
                 android:textColorHint="@color/color_C9C9C9"
                 android:textSize="@dimen/size_14" />
@@ -99,7 +99,7 @@
                 android:background="@null"
                 android:hint="请输入密码"
                 android:inputType="textPassword"
-                android:text="123"
+                android:text="MTIzNDU2"
                 android:paddingLeft="@dimen/size_20"
                 android:textColor="@color/color_333333"
                 android:textColorHint="@color/color_C9C9C9"
