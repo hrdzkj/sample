@@ -43,33 +43,7 @@ public class NetWork {
 
     private NetWork() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.addInterceptor(chain -> {
-            // 拦截器，从后台响应的头部中获取 的cookie和X-XSRF-TOKEN 保存到起来
-            Response response = chain.proceed(chain.request());
-            if (mHeaderParaList.size()==0) { //如果之前已经保存了，就不用再保存了
-                if (null != response.header("Set-Cookie")) {
-                    mHeaderParaList.put("Cookie", response.header("Set-Cookie"));
-                }
-
-                if (null != response.header("X-XSRF-TOKEN")) {
-                    mHeaderParaList.put("X-XSRF-TOKEN", response.header("X-XSRF-TOKEN"));
-                }
-            }
-            return response;
-        }).addInterceptor(chain -> {
-            // 设置 Cookie到请求的头部
-            if (mHeaderParaList.size()>0) {
-                Request.Builder reqBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : mHeaderParaList.entrySet()) {
-                    reqBuilder.addHeader(entry.getKey(),entry.getValue());
-                }
-
-                return chain.proceed(reqBuilder.build());
-            }else {
-                return chain.proceed(chain.request());
-            }
-        });
-
+        // builder.addInterceptor(new CookieSaveInterceptor()).addInterceptor(new CookieSetInterceptor());
         Retrofit retrofit = new Retrofit.Builder().client(builder.build()).baseUrl(HttpConst.BASEURL)
                 //设置内容格式,这种对应的数据返回值是String类型
                 .addConverterFactory(ScalarsConverterFactory.create()).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();

@@ -35,8 +35,12 @@ public class DictionaryListAdapter extends RecyclerView.Adapter<RecyclerViewHold
         return this;
     }
 
-    public DictionaryListAdapter setDictionaryList(List dictionaryList) {
-        mDictionaryList = dictionaryList;
+    public DictionaryListAdapter setDictionaryList(List<JsonData> dictionaryList) {
+        mDictionaryList.clear();
+        if (dictionaryList!=null){
+            mDictionaryList.addAll(dictionaryList);
+        }
+        notifyDataSetChanged();
         return this;
     }
 

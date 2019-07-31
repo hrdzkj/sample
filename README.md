@@ -19,7 +19,6 @@ Rxjava的一些高级用法请看https://github.com/hrdzkj/RxJavaSamples的devel
 
 2）注意修改混淆配置文件 com.gxjfict.sample.widget.LooperTextView包名
 
-3)ref to 短信过滤系统 retrofit2拦截器同步session;
 4)todo downloadfile
 
 ——-------------

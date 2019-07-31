@@ -6,4 +6,5 @@ package com.gxjfict.sample.utils;
 public class Hawk_keys {
     public static String KEY_TOKEN="token";
     public static String KEY_USER_INFO="userinfo";
+    public static String KEY_SESSION="session";
 }
