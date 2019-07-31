@@ -2,7 +2,7 @@ package com.gxjfict.sample.utils.network;
 
 import android.util.Log;
 
-import com.gxjfict.msgfilter.utils.Hawk_keys;
+import com.gxjfict.sample.utils.Hawk_keys;
 import com.orhanobut.hawk.Hawk;
 
 import java.io.IOException;
@@ -11,7 +11,8 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static com.gxjfict.msgfilter.utils.network.HttpConst.APP_LOGIN;
+import static com.gxjfict.sample.utils.network.HttpConst.APP_LOGIN;
+
 
 /**
  * Created by LiuYi on 2019-07-10.
