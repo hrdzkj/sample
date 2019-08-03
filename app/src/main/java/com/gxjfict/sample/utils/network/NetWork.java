@@ -2,6 +2,8 @@ package com.gxjfict.sample.utils.network;
 
 import android.content.Intent;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,6 +14,7 @@ import java.util.Map;
 import com.gxjfict.sample.MyApplication;
 import com.gxjfict.sample.utils.Hawk_keys;
 import com.gxjfict.sample.utils.JsonData;
+import com.gxjfict.sample.utils.ToastUtil;
 import com.orhanobut.hawk.Hawk;
 
 import java.nio.charset.Charset;
@@ -19,6 +22,12 @@ import java.nio.charset.UnsupportedCharsetException;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -59,6 +68,82 @@ public class NetWork {
 
     public Observable<String> post(String path, Map<String, String> para) {
         return mHttpService.postMap(path, para);
+    }
+
+
+    // https://blog.csdn.net/u011082160/article/details/81233756
+    public void download(String url,String filePath,DownloadListener downloadListener){
+         mHttpService.download(url).subscribeOn(Schedulers.io()).flatMap((Function<ResponseBody, ObservableSource<DownloadInfo>>) responseBody -> {
+            return Observable.create(emitter -> {
+                InputStream inputStream = null;
+
+                FileOutputStream fos = null;
+                DownloadInfo downloadInfo = new DownloadInfo();
+                try {
+                    byte[] buf = new byte[2048];
+                    long resLength = responseBody.contentLength();
+                    long totalRead = 0;
+                    int len = 0;
+                    inputStream = responseBody.byteStream();
+                    downloadInfo.setFileSize(resLength);
+                    fos = new FileOutputStream(filePath);
+                    while ((len = inputStream.read(buf)) != -1) {
+                        fos.write(buf, 0, len);
+                        totalRead += len;
+                        int progress = (int) (totalRead * 100 / resLength);
+
+                        //读到数据，更新进度
+                        if (len > 0) {
+                            downloadInfo.setProgress(progress);
+                            downloadInfo.setCurrentSize(totalRead);
+                            emitter.onNext(downloadInfo);
+                        }
+                    }
+                    fos.flush();
+                    emitter.onComplete();
+                } catch (Exception e) {
+                    emitter.onError(e);
+                } finally {
+                    try {
+                        if (fos != null) {
+                            fos.close();
+                        }
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+
+        }).unsubscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<DownloadInfo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+
+            @Override
+            public void onNext(DownloadInfo downloadInfo) {
+                 if (downloadListener!=null){
+                     downloadListener.onProgress(downloadInfo.getProgress());
+                 }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                if (downloadListener!=null){
+                    downloadListener.onFailed(e);
+                }
+            }
+
+            @Override
+            public void onComplete() {
+                if (downloadListener!=null){
+                    downloadListener.onFinish();
+                }
+            }
+        });
     }
 
     public NetWork clearCookie()
