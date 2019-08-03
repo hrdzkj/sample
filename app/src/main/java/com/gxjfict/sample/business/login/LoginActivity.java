@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,7 +24,13 @@ import com.orhanobut.hawk.Hawk;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -65,7 +72,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.btnLogin:
 
-                doLogin();
+                //doLogin();
+                testRxjava();
                 break;
             default:
                 break;
@@ -105,4 +113,36 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
 
+    private static String TAG="liuyi---->";
+    @SuppressLint("CheckResult")
+    private void testRxjava()
+    {
+        Observable<Integer> observable = Observable.create(emitter -> {
+            Log.d(TAG, "onNext thread is : " + Thread.currentThread().getId());
+            emitter.onNext(1);
+        });
+
+
+
+        Consumer<String> consumer = integer -> {
+            Log.d(TAG, "Consumer thread is :" + Thread.currentThread().getId());
+        };
+
+        observable//.subscribeOn(Schedulers.io())
+                //.observeOn(AndroidSchedulers.mainThread())
+                .map(integer -> {
+                    Log.d(TAG, "map1 thread is :" + Thread.currentThread().getId());
+                    return "2";
+                })
+                //.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(s->{
+                    Log.d(TAG, "map2 thread is :" + Thread.currentThread().getId());
+                    return "2";
+                })
+                .subscribeOn(Schedulers.io())
+                //.observeOn(Schedulers.io())
+                .subscribe(consumer);
+
+    }
 }

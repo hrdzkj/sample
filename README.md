@@ -36,3 +36,6 @@ rxjava好用的原因：
 1.)map,flatmap对事件的变换; compose/zipObservable 整体的变换;
 2.)线程的自由控制;
 
+subscribeOn无论出现在什么位置，都只影响源头的执行环境
+(https://blog.51cto.com/liukang/2090191)
+
