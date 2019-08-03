@@ -31,4 +31,8 @@ Rxjava+Retrofit 实现全局过期 Token 自动刷新
 https://www.cnblogs.com/aademeng/articles/7325448.html
 
 String url = "apkFile/msgfilter.apk";
+林云:
+rxjava好用的原因：
+1.)map,flatmap对事件的变换; compose/zipObservable 整体的变换;
+2.)线程的自由控制;
 
