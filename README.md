@@ -26,8 +26,9 @@ https://github.com/JessYanCoding/MVPArms
 
 支付宝使用了 aspectj okio,nannohttpd  里面有好多动画
 
-AOP则是针对业务处理过程中的切面进行提取,从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率.
 
-用AspectJ，把用来修饰方法的注解作为一个切点，在执行该方法时，触发该切点所对应的逻辑。
------------
+Rxjava+Retrofit 实现全局过期 Token 自动刷新
+https://www.cnblogs.com/aademeng/articles/7325448.html
+
+String url = "apkFile/msgfilter.apk";
 

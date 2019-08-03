@@ -1,25 +1,12 @@
 package com.gxjfict.sample.utils.network;
 
-import android.content.Intent;
-
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 
-
-import com.gxjfict.sample.MyApplication;
-import com.gxjfict.sample.utils.Hawk_keys;
-import com.gxjfict.sample.utils.JsonData;
-import com.gxjfict.sample.utils.ToastUtil;
-import com.orhanobut.hawk.Hawk;
 
 import java.nio.charset.Charset;
-import java.nio.charset.UnsupportedCharsetException;
-import java.util.Map;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -28,18 +15,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
-import okio.Buffer;
-import okio.BufferedSource;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-
-import static com.gxjfict.sample.business.login.LoginActivity.IS_LOGIN;
 
 /**
  * Created by LiuYi on 2018/12/28.
@@ -105,7 +85,7 @@ public class NetWork {
 
 
     // https://blog.csdn.net/u011082160/article/details/81233756
-    public void download(String url,String filePath,DownloadListener downloadListener){
+    public void download(String url, String filePath, FileCallback downloadListener){
          mHttpService.download(url).subscribeOn(Schedulers.io()).flatMap((Function<ResponseBody, ObservableSource<DownloadInfo>>) responseBody -> {
             return Observable.create(emitter -> {
                 InputStream inputStream = null;
@@ -166,7 +146,7 @@ public class NetWork {
             @Override
             public void onError(Throwable e) {
                 if (downloadListener!=null){
-                    downloadListener.onFailed(e);
+                    downloadListener.onError(e);
                 }
             }
 

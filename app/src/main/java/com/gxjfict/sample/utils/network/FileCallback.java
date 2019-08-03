@@ -6,10 +6,10 @@ import java.io.File;
  * Created by liuyang on 2016/12/20.
  */
 
-public interface DownloadListener {
+public interface FileCallback {
     void onFinish();
 
     void onProgress(int progress);
 
-    void onFailed(Throwable throwable);
+    void onError(Throwable throwable);
 }
