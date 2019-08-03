@@ -45,6 +45,38 @@ import static com.gxjfict.sample.business.login.LoginActivity.IS_LOGIN;
  * Created by LiuYi on 2018/12/28.
  */
 public class NetWork {
+
+    private class DownloadInfo {
+        private long fileSize;//单位 byte
+        private long currentSize;//当前下载大小
+        private int progress;//当前下载进度
+
+        public long getFileSize() {
+            return fileSize;
+        }
+
+        public void setFileSize(long fileSize) {
+            this.fileSize = fileSize;
+        }
+
+        public long getCurrentSize() {
+            return currentSize;
+        }
+
+        public void setCurrentSize(long currentSize) {
+            this.currentSize = currentSize;
+        }
+
+        public int getProgress() {
+            return progress;
+        }
+
+        public void setProgress(int progress) {
+            this.progress = progress;
+        }
+
+    }
+
     private static NetWork mInstance = null;
     private IHttpService mHttpService;
     private final Charset UTF8 = Charset.forName("UTF-8");
@@ -69,6 +101,7 @@ public class NetWork {
     public Observable<String> post(String path, Map<String, String> para) {
         return mHttpService.postMap(path, para);
     }
+
 
 
     // https://blog.csdn.net/u011082160/article/details/81233756

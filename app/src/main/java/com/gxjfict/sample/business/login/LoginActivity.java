@@ -4,9 +4,7 @@ package com.gxjfict.sample.business.login;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,29 +15,16 @@ import com.gxjfict.sample.R;
 import com.gxjfict.sample.base.BaseActivity;
 import com.gxjfict.sample.business.main.MainActivity;
 import com.gxjfict.sample.utils.Hawk_keys;
-import com.gxjfict.sample.utils.JsonData;
 import com.gxjfict.sample.utils.ToastUtil;
-import com.gxjfict.sample.utils.network.DownloadInfo;
 import com.gxjfict.sample.utils.network.HttpConst;
 import com.gxjfict.sample.utils.network.NetWork;
 import com.orhanobut.hawk.Hawk;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
-
-import static com.gxjfict.sample.utils.network.HttpConst.REQUEST_SUCCESS;
 
 /**
  * Created by LiuYi on 2018/8/29.
