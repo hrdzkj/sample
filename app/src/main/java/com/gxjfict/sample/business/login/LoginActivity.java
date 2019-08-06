@@ -135,13 +135,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     return "2";
                 })
                 //.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                //.observeOn(AndroidSchedulers.mainThread())
                 .map(s->{
                     Log.d(TAG, "map2 thread is :" + Thread.currentThread().getId());
                     return "2";
                 })
-                .subscribeOn(Schedulers.io())
-                //.observeOn(Schedulers.io())
+                //.subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
                 .subscribe(consumer);
 
     }

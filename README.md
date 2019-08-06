@@ -39,3 +39,22 @@ rxjava好用的原因：
 subscribeOn无论出现在什么位置，都只影响源头的执行环境
 (https://blog.51cto.com/liukang/2090191)
 
+https://juejin.im/entry/5799b23da633bd0060deb8fc
+
+
+
+dagger2 example
+好处：使用和创建解耦。
+体会：activity fragment. 不用管用到的对象是怎么样创建的，只管用就得了。
+https://juejin.im/post/5bcc7151f265da0ab41e8f6e
+https://juejin.im/post/5bcc7151f265da0ab41e8f6e#heading-12
+https://juejin.im/post/59bf3df4f265da064f1ffeb2#heading-28
+https://juejin.im/post/585bad0461ff4b0058047e65
+https://juejin.im/entry/599175fc51882548997a9fc6
+https://juejin.im/entry/57a4271179bc440054b739fd
+https://juejin.im/post/5c0a235ce51d4530e41446cd
+https://juejin.im/post/5b78d2baf265da43737e8894#heading-5
+https://juejin.im/post/5cc72061e51d456e6154b4bc
+
+https://juejin.im/post/5b7fb59ae51d4538e3319947
+
