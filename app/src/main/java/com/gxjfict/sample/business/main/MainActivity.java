@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.gxjfict.sample.R;
+import com.gxjfict.sample.dialog.UpdateVersionDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initView();
         initFragment();
-//        updateApk();
+        getRemoteApkVersion();
     }
 
 
@@ -106,8 +109,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @SuppressLint("CheckResult")
-    private void getUpdateApk() {
-
+    private void getRemoteApkVersion() {
+        String downApkUrl = "http://202.103.240.156:8090/ICRCOffice/tools/redCrossApp.apk";
+        int versionCode =2;
+        String versionName = "2.0";
+        if (versionCode > AppUtils.getAppVersionCode() && !TextUtils.isEmpty(downApkUrl)) {
+            new UpdateVersionDialog.Builder(this).setVersionName(versionName).setUpdateAppUrl(downApkUrl).create().show();
+        }
     }
 
 

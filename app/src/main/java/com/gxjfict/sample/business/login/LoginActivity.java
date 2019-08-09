@@ -73,7 +73,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.btnLogin:
 
                 //doLogin();
-                testRxjava();
+                toMainActivity();
                 break;
             default:
                 break;
@@ -113,36 +113,4 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
 
-    private static String TAG="liuyi---->";
-    @SuppressLint("CheckResult")
-    private void testRxjava()
-    {
-        Observable<Integer> observable = Observable.create(emitter -> {
-            Log.d(TAG, "onNext thread is : " + Thread.currentThread().getId());
-            emitter.onNext(1);
-        });
-
-
-
-        Consumer<String> consumer = integer -> {
-            Log.d(TAG, "Consumer thread is :" + Thread.currentThread().getId());
-        };
-
-        observable//.subscribeOn(Schedulers.io())
-                //.observeOn(AndroidSchedulers.mainThread())
-                .map(integer -> {
-                    Log.d(TAG, "map1 thread is :" + Thread.currentThread().getId());
-                    return "2";
-                })
-                //.subscribeOn(Schedulers.io())
-                //.observeOn(AndroidSchedulers.mainThread())
-                .map(s->{
-                    Log.d(TAG, "map2 thread is :" + Thread.currentThread().getId());
-                    return "2";
-                })
-                //.subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
-                .subscribe(consumer);
-
-    }
 }
