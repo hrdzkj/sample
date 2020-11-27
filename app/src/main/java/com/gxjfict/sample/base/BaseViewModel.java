@@ -1,8 +1,10 @@
 package com.gxjfict.sample.base;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.gxjfict.sample.utils.network.Resource;
 
@@ -12,6 +14,7 @@ import io.reactivex.disposables.Disposable;
  * Created by LiuYi on 2019/1/3.
  */
 public  class BaseViewModel extends ViewModel {
+
     protected Disposable mDisposable;
     //
     protected MutableLiveData<Resource> mMutableLiveData = new MutableLiveData<>();

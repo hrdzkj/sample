@@ -1,13 +1,15 @@
 package com.gxjfict.sample.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by lenvov on 2017/2/15.
@@ -48,6 +50,7 @@ public class DrawableUtil {
     }
 
    //生产shape
+    @SuppressLint("ResourceType")
     public static GradientDrawable getGradientDrawable(Context context, int radius, @DrawableRes int fillColor, int width, @DrawableRes int strokeColor) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(radius);

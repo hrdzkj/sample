@@ -15,19 +15,19 @@ ext {
     ]
 
     dependencies = [
-            "appcompat-v7"              : "com.android.support:appcompat-v7:${dependVersion.support}",
-            "support-design"            : "com.android.support:design:${dependVersion.support}",
-            "support-v4"                : "com.android.support:support-v4:${dependVersion.support}",
-            "support-v13"               : "com.android.support:support-v13:${dependVersion.support}",
-            "lifecycle.runtime"         : "android.arch.lifecycle:runtime:${dependVersion.lifecycle}",
-            "lifecycle:extensions"      : "android.arch.lifecycle:extensions:${dependVersion.lifecycle}",
-            "lifecycle:compiler"        : "android.arch.lifecycle:compiler:${dependVersion.lifecycle}",
+            "appcompat-v7"              : 'androidx.appcompat:appcompat:1.0.0',
+            "support-design"            : 'com.google.android.material:material:1.0.0',
+            "support-v4"                : "androidx.legacy:legacy-support-v4:${dependVersion.support}",
+            "support-v13"               : "androidx.legacy:legacy-support-v13:${dependVersion.support}",
+            "lifecycle.runtime"         : "androidx.lifecycle:lifecycle-runtime:${dependVersion.lifecycle}",
+            "lifecycle:extensions"      : 'androidx.lifecycle:lifecycle-extensions:2.0.0',
+            "lifecycle:compiler"        : 'androidx.lifecycle:lifecycle-compiler:2.0.0',
             "smartRefreshLayout"        : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefresh}",
             "smartRefreshHeader"        : "com.scwang.smartrefresh:SmartRefreshHeader:${dependVersion.smartRefresh}",
-            "dagger"                    : "com.google.dagger:dagger:${dependVersion.daggerVersion}",
-            "dagger-android"            : "com.google.dagger:dagger-android:${dependVersion.daggerVersion}",
-            "dagger-android-support"    : "com.google.dagger:dagger-android-support:${dependVersion.daggerVersion}",
-            "dagger-android-processor"  : "com.google.dagger:dagger-android-processor:${dependVersion.daggerVersion}",
-            "dagger-compiler"           : "com.google.dagger:dagger-compiler:${dependVersion.daggerVersion}",
+           // "dagger"                    : "com.google.dagger:dagger:${dependVersion.daggerVersion}",
+           // "dagger-android"            : "com.google.dagger:dagger-android:${dependVersion.daggerVersion}",
+           // "dagger-android-support"    : "com.google.dagger:dagger-android-support:${dependVersion.daggerVersion}",
+           // "dagger-android-processor"  : "com.google.dagger:dagger-android-processor:${dependVersion.daggerVersion}",
+           // "dagger-compiler"           : "com.google.dagger:dagger-compiler:${dependVersion.daggerVersion}",
     ]
 }

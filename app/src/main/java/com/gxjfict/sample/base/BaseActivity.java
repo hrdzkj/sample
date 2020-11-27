@@ -1,10 +1,11 @@
 package com.gxjfict.sample.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.gxjfict.sample.R;
 import com.gxjfict.sample.dialog.LoadingDialog;

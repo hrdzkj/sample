@@ -1,7 +1,9 @@
 package com.gxjfict.sample.utils.network;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static com.gxjfict.sample.utils.network.Status.ERROR;
 import static com.gxjfict.sample.utils.network.Status.LOADING;

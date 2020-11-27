@@ -3,12 +3,14 @@ package com.gxjfict.sample.business.main;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+
 import com.gxjfict.sample.R;
 import com.gxjfict.sample.utils.ToastUtil;
 import com.gxjfict.sample.utils.network.HttpConst;
@@ -16,7 +18,6 @@ import com.gxjfict.sample.utils.network.NetWork;
 import com.gxjfict.sample.widget.LooperTextView;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
